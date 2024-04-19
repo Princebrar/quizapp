@@ -56,8 +56,9 @@ export default function Questions({setQuizstarted,listofquestions}) {
                         }
                     }
                 }}
+                dangerouslySetInnerHTML={{
+                    __html:`${answer}`}}
             >
-                {answer}
             </button>
         );
     })}
@@ -73,9 +74,12 @@ export default function Questions({setQuizstarted,listofquestions}) {
             {wrongAnswers.map((item, index) => {
                 return (
                     <div key={index} className="flex flex-col gap-1 m-5 w-full ">
-                        <span className="text-base font-semibold">Q{index + 1} {item.question.question}</span>
-                        <span className=" text-sm font-light">Your Answer: {item.answer}</span>
-                        <span className="text-sm font-normal">Correct Answer: {item.question.correct_answer}</span>
+                        <span className="text-base font-semibold" dangerouslySetInnerHTML={{
+    __html:`Q${index + 1} ${item.question.question}`}}></span>
+                        <span className=" text-sm font-light" dangerouslySetInnerHTML={{
+    __html:`Your Answer: ${item.answer}`}}></span>
+                        <span className="text-sm font-normal" dangerouslySetInnerHTML={{
+    __html:`Correct Answer: ${item.question.correct_answer}`}}></span>
                     </div>
                 );
             })}
