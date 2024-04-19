@@ -67,12 +67,12 @@ export default function Questions({setQuizstarted,listofquestions}) {
     <div className="flex flex-col items-center w-full justify-evenly h-full">
     <span className=" w-full text-center text-3xl font-bold">Your Scored {score}/{listofquestions.length} ({(score/listofquestions.length)*100}%)</span>
     {wrongAnswers.length > 0 &&
-    <div>
+    <div className="overflow-scroll mb-2 h-56">
         <span className="text-xl font-semibold">Wrong Answers:</span>
-        <div className="flex flex-col gap-1 items-center w-full">
+        <div className="flex flex-col gap-1 items-center w-full overflow-scroll">
             {wrongAnswers.map((item, index) => {
                 return (
-                    <div key={index} className="flex flex-col gap-1 m-5 w-full">
+                    <div key={index} className="flex flex-col gap-1 m-5 w-full ">
                         <span className="text-base font-semibold">Q{index + 1} {item.question.question}</span>
                         <span className=" text-sm font-light">Your Answer: {item.answer}</span>
                         <span className="text-sm font-normal">Correct Answer: {item.question.correct_answer}</span>
